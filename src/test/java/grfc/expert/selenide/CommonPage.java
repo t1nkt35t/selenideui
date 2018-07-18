@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
 public class CommonPage {
 
@@ -21,12 +22,18 @@ public class CommonPage {
 
     static void viewConfirmTab () {
         $(By.xpath(confirmTab)).click();
-        Selenide.refresh();
+        while ($$(By.xpath(expCard)).size() < 1) {
+            Selenide.refresh();
+            $(By.xpath("//div[@class='b-table-scroll']")).shouldBe(visible);
+        }
     }
 
     static void viewApproveTab () {
         $(By.xpath(approveTab)).click();
-        Selenide.refresh();
+        while ($$(By.xpath(expCard)).size() < 1) {
+            Selenide.refresh();
+            $(By.xpath("//div[@class='b-table-scroll']")).shouldBe(visible);
+        }
     }
 
     static void logout () {

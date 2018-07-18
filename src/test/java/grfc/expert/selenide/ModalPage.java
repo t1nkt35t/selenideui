@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.switchTo;
 
 public class ModalPage {
@@ -61,7 +62,7 @@ public class ModalPage {
         $(By.xpath(setOpinionBtn)).click();
     }
 
-    static void workWithExpByGroupMan () {
+    static void workWithExpByGroupMan () throws InterruptedException {
         $(By.xpath(yesOrNoSwitch)).click();
         $(By.xpath(backToWorkBtn)).shouldBe(enabled);
         $(By.xpath(backtoQueBtn)).shouldBe(enabled);
@@ -69,6 +70,7 @@ public class ModalPage {
         $(By.xpath(backFromUploadComment)).shouldBe(visible);
         $(By.xpath(uploadComment)).sendKeys("tozdtozdtozd");
         $(By.xpath(saveBtn)).click();
+        Thread.sleep(2000);
         $(By.xpath(confirmBtn)).click();
         $(By.xpath(callBackBtn)).click();
         $(By.xpath(backtoQueBtn)).shouldBe(enabled);
@@ -76,7 +78,6 @@ public class ModalPage {
     }
 
     static void workWithExpByTopMan () {
-        switchTo().alert().accept();
         $(By.xpath(yesOrNoSwitch)).shouldHave(text("Да"));
         $(By.xpath(backToWorkBtn)).shouldBe(enabled);
         $(By.xpath(approveBtn)).click();

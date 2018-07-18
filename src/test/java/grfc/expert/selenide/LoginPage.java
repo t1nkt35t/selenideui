@@ -20,7 +20,7 @@ public class LoginPage {
        public static void login(String role) {
            open(Settings.ip);
            $(By.xpath(nameField)).setValue(role);
-           $(By.xpath(passField)).setValue("pswd");
+           $(By.xpath(passField)).setValue("pswdpswd");
            $(By.xpath(submitBtn)).click();
            $(By.xpath(waitFor)).should(Condition.disappears);
            assertTrue(url().equals(Settings.ip + "/#/expert/inquiry"));
