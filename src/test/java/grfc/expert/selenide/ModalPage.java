@@ -2,6 +2,8 @@ package grfc.expert.selenide;
 
 import com.codeborne.selenide.Selenide;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
@@ -70,10 +72,15 @@ public class ModalPage {
         $(By.xpath(backFromUploadComment)).shouldBe(visible);
         $(By.xpath(uploadComment)).sendKeys("tozdtozdtozd");
         $(By.xpath(saveBtn)).click();
-        Thread.sleep(2000);
+        Thread.sleep(4000);
         $(By.xpath(confirmBtn)).click();
         $(By.xpath(callBackBtn)).click();
         $(By.xpath(backtoQueBtn)).shouldBe(enabled);
+
+//        while (!((JavascriptExecutor)test1.driver).executeScript("return document.readyState").equals("complete")) {
+//        Thread.sleep(100);
+//        }
+        Thread.sleep(4000);
         $(By.xpath(confirmBtn)).click();
     }
 

@@ -18,7 +18,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Condition.*;
 
 public class test1 {
-
+    static WebDriver driver;
     @Before
     public void start() {
         Configuration.timeout = 8000;
@@ -26,12 +26,12 @@ public class test1 {
         ChromeOptions opts = new ChromeOptions();
         opts.addExtensions(new File("C:\\Users\\psi\\git\\selenide\\selenideui\\CryptoPro Extension for CAdES Browser Plug-in.crx"));
         opts.addArguments("start-maximized");
-        WebDriver driver = new ChromeDriver(opts);
+        driver = new ChromeDriver(opts);
         WebDriverRunner.setWebDriver(driver);
     }
     @Test
     public void endToEnd() throws InterruptedException {
-        Settings.expTitle = "131318";
+        Settings.expTitle = "131319";
 //        open("http://192.168.71.62");
 
 // MAN:
@@ -58,8 +58,11 @@ public class test1 {
         CommonPage.viewApproveTab();
         CommonPage.openCard(Settings.expTitle);
         ModalPage.workWithExpByTopMan();
-
     }
+
+//    @Test
+//    public void
+
     @After
     public void finish() {
 //        WebDriverRunner.closeWebDriver();
